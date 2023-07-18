@@ -11,4 +11,4 @@ import pymongo
 
 def insert_school(mongo_collection, **kwargs):
     """ Insets a user value to kwarg """
-    return mongo_collection.inset(kwargs)
+    return mongo_collection.insert(kwargs)
