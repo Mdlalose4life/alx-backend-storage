@@ -5,6 +5,8 @@
 import redis
 import uuid
 from typing import Any, Union, Optional, Callable
+
+
 class Cache:
     """Cache class.
     """
