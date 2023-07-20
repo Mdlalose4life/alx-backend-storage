@@ -196,3 +196,4 @@ class Cache:
         """
         # use get with a conversion function to retrieve an integer
         return self.get(key, lambda x: int(x))
+        
