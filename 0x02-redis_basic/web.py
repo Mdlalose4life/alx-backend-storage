@@ -37,3 +37,4 @@ def get_page(url: str) -> str:
     count += 1
     response = requests.get(url)
     return response.content.decode('utf-8')
+    
