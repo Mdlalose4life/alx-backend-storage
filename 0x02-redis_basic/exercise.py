@@ -38,3 +38,29 @@ class Cache:
         self._redis.set(keys, data)
         # return the key
         return keys
+    
+    def get(self, key: str, fn:
+            Optional[Callable[[bytes], Union[str, bytes, int, float]]] = None)\
+            -> Union[str, bytes, int, float, None]:
+            """
+
+            """
+            data = self._redis.get(key)
+            # If no key in redit return None
+            if data in None:
+                return None
+            # If the key is present, the execute the function
+            if fn in not None:
+                data = fn(data)
+            return data
+
+    def get_str(self, key:str) -> Optional[str]:
+        """
+        """
+        return self.get(key, lamda x: x.decode("utf-8"))
+
+    def get_int(self, key: str) -> Optional[int]:
+        """
+        """
+        # use get with a conversion function to retrieve an integer
+        return self.get(key, lambda x: int(x))
